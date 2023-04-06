@@ -1,5 +1,3 @@
-package Chess;
-
 public enum Player {
 	BLACK, WHITE;
 

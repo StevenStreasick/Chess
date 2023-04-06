@@ -1,4 +1,3 @@
-package Chess;
 public class Move {
 	public int fromRow, fromColumn, toRow, toColumn;
 
@@ -12,14 +11,10 @@ public class Move {
 		this.toColumn = toColumn;
 	}
 
-	
-	/** 
-	 * @return String
-	 */
 	@Override
 	public String toString() {
-		return "Move [fromRow=" + fromRow + ", fromColumn=" + fromColumn + ", toRow=" + toRow + ", toColumn=" + toColumn
-				+ "]";
+		return "Move [fromRow=" + fromRow + ", fromColumn=" + 
+		fromColumn + ", toRow=" + toRow + ", toColumn=" + toColumn + "]";
 	}
 	
 	

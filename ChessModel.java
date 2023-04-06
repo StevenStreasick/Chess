@@ -1,4 +1,3 @@
-package Chess;
 
 import java.util.ArrayList;
 /**************************************************************
@@ -63,35 +62,37 @@ public class ChessModel {
 		if(!inCheck(currentPlayer())) {
 			return false;
 		}
-			for(int row = 0; row < numRows(); row++) {
-				for(int col = 0; col < numColumns(); col++) {
-					if(pieceAt(row, col) != null) {
-						if(pieceAt(row, col).player() == currentPlayer()) {
-							for(int toRow = 0; toRow < numRows(); toRow++) {
-								for(int toCol = 0; toCol < numRows(); toCol++) { 
-									Move move = new Move(row, col, toRow, toCol);
 
-									if(isValidMove(move)) {
-										move(move);
-										setNextPlayer();
-										if(inCheck(currentPlayer())) {
-											System.out.println("still in check");
-											System.out.println(currentPlayer());
-											undo(); 	
-										} else {
-											System.out.println("out of check");
-											System.out.println(currentPlayer());
-											undo();
-											return false;
-										}
-										
+		for(int row = 0; row < numRows(); row++) {
+			for(int col = 0; col < numColumns(); col++) {
+				if(pieceAt(row, col) != null) {
+					if(pieceAt(row, col).player() == currentPlayer()) {
+						for(int toRow = 0; toRow < numRows(); toRow++) {
+							for(int toCol = 0; toCol < numRows(); toCol++) { 
+								Move move = new Move(row, col, toRow, toCol);
+
+								if(isValidMove(move)) {
+									move(move);
+									setNextPlayer();
+									if(inCheck(currentPlayer())) {
+										System.out.println("still in check");
+										System.out.println(currentPlayer());
+										undo(); 	
+									} else {
+										System.out.println("out of check");
+										System.out.println(currentPlayer());
+										undo();
+										return false;
 									}
+									
 								}
 							}
 						}
 					}
 				}
 			}
+		}
+
 		return true;
 	}
 
@@ -130,11 +131,12 @@ public class ChessModel {
 									setNextPlayer();
 									undo();
 									return true;
-								} else { 
-									setNextPlayer();
-									undo();
-									return false;
-								}
+								} 
+
+								setNextPlayer();
+								undo();
+								return false;
+								
 									
 							}
 						}

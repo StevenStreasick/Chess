@@ -1,6 +1,6 @@
-package Chess;
 import java.awt.Dimension;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class ChessGUI {
@@ -16,5 +16,7 @@ public class ChessGUI {
         frame.setPreferredSize(new Dimension(800, 637));
         frame.pack();
         frame.setVisible(true);
+
+        JButton button = new JButton("undo button");
     }
 }

@@ -1,5 +1,3 @@
-package Chess;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -121,12 +119,12 @@ public class ChessPanel extends JPanel {
 
 	private void createIcons() {
 		// Sets the ImageIcon for the Black Player Pieces
-		bRook = new ImageIcon("./src/Chess/bRook.png");  
-		bBishop = new ImageIcon("./src/Chess/bBishop.png"); 
-		bQueen = new ImageIcon("./src/Chess/bQueen.png");  
-		bKing = new ImageIcon("./src/Chess/bKing.png");
-		bPawn = new ImageIcon("./src/Chess/bPawn.png");
-		bKnight = new ImageIcon("./src/Chess/bKnight.png");
+		bRook = new ImageIcon("./src/bRook.png");  
+		bBishop = new ImageIcon("./src/bBishop.png"); 
+		bQueen = new ImageIcon("./src/bQueen.png");  
+		bKing = new ImageIcon("./src/bKing.png");
+		bPawn = new ImageIcon("./src/bPawn.png");
+		bKnight = new ImageIcon("./src/bKnight.png");
 
 		// Sets the Image for white player pieces
 		wRook = new ImageIcon("./src/wRook.png");
@@ -226,7 +224,7 @@ public class ChessPanel extends JPanel {
 			tempMove = new Move(fromRow, fromColumn, toRow, toColumn);
 			if (model.isValidMove(tempMove)) {
 				model.move(tempMove);
-				model.setNextPlayer();//MAY NEED TO DISABLE
+				//model.setNextPlayer();//NEED TO DISABLE
 
 				if (model.inCheck(model.currentPlayer())) {
 					messageCode = GUIcodes.inCheck;
@@ -275,6 +273,15 @@ public class ChessPanel extends JPanel {
 						"Warning", JOptionPane.CLOSED_OPTION);
 			}
             // TODO:  add other code here to display other dialogs
+			//if (messageCode == GUIcodes.Checkmate) {
+			//	JOptionPane.showConfirmDialog(null, "Checkmate", "Game Over", JOptionPane.CLOSED_OPTION);
+			//}
+			//if (messageCode ==  GUIcodes.inCheck) {
+			//	JOptionPane.showConfirmDialog(null, "You're in Check", "Warning", JOptionPane.CLOSED_OPTION);
+			//}
+			//if (messageCode == GUIcodes.NoMessage) {
+			//	JOptionPane.showConfirmDialog(null, "Invalid move", "Warning", JOptionPane.CLOSED_OPTION);
+			//}
 
 		}
 
